@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Tienda - Edita este título</title>
+    <style>
+        /* ===================== ESTILOS GENERALES ===================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #e6a98b;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===================== HEADER / NAVEGACIÓN ===================== */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            height: 150px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            display: inline-block;
+            position: relative;
+            color: #e6a98b;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #1a1a1a;
+        }
+
+        /* línea escondida */
+        .nav-menu a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0%;
+        height: 2px;
+        background-color: #1a1a1a;
+        transition: width 0.3s;
+}
+
+/* cuando pasas el mouse */
+        .nav-menu a:hover {
+        color: #1a1a1a;
+        }  
+
+        .nav-menu a:hover::after {
+        width: 100%;
+        }
+
+        /* ===================== HERO / BANNER PRINCIPAL ===================== */
+
+
+        .hero {
+            background-color: #e6a98b;
+            width: 100%;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        p {
+            color: #fff;
+            font: 30px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #fff;
+            color: #e6a98b;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.8;
+        }
+
+        /* ===================== SECCIÓN DE PRODUCTOS ===================== */
+        .productos {
+            padding: 60px 0;
+        }
+
+        .productos h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* ===================== TARJETA DE PRODUCTO ===================== */
+        .tarjeta {
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .tarjeta:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tarjeta-imagen {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999999;
+        }
+
+        .tarjeta-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tarjeta-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tarjeta-info {
+            padding: 20px;
+        }
+
+        .tarjeta-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .tarjeta-info p {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .precio {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .btn-comprar {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn-comprar:hover {
+            opacity: 0.8;
+        }
+
+        /* ===================== SECCIÓN SOBRE NOSOTROS ===================== */
+        .sobre-nosotros {
+            background-color: #f5f5f5;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .sobre-nosotros h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .sobre-nosotros p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666666;
+            font-size: 18px;
+        }
+
+        /* ===================== FOOTER ===================== */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e5e5e5;
+            padding: 50px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+            color: #666666;
+        }
+
+        .footer-col a {
+            color: #666666;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #1a1a1a;
+        }
+
+        .redes-sociales {
+            display: flex;
+            gap: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+            color: #666666;
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===================== HEADER / NAVEGACIÓN ===================== -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Logo - Edita el nombre de tu tienda aquí -->
+                <div class="logo">
+                    <img src="COCOESNAILS.png" alt="logo cocoes">
+                </div>
+                
+                <!-- Menú de navegación -->
+                <ul class="nav-menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="https://www.instagram.com/cocoes_studionails?igsh=Nmp0NGtnOTZzM2I2" target="_blank">Mi Instagram</a></li>
+                    <li><a href="https://wa.me/573132901586?text=Hola%20quiero%20agendar%20una%20cita" target="_blank">
+                    Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================== HERO / BANNER PRINCIPAL ===================== -->
+    <section class="hero">
+        <div class="container">
+            <h1>COCOES STUDIO NAILS</h1>
+            <p>UÑAS SEGURAS Y LINDAS - CALIDAD + SALUD + DISEÑO</p>
+            <a class="btn-primary" href="https://wa.me/573132901586?text=Hola%20quiero%20agendar%20una%20cita" target="_blank">
+            AGENDA AHORA
+            </a>
+        </div>
+    </section>
+
+    <!-- ===================== SECCIÓN DE PRODUCTOS ===================== -->
+    <section class="productos">
+        <div class="container">
+            <h2>NUESTROS PRODUCTOS</h2>
+            
+            <div class="grid-productos">
+
+                <!-- TARJETA PRODUCTO 1 -->
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="WhatsApp Image 2026-03-27 at 7.26.46 PM.jpeg" alt="Producto 1">
+                    </div>
+                    <div class="tarjeta-info">
+                        <h3>Nombre Producto 1</h3>
+                        <p>Descripción breve del producto</p>
+                        <div class="tarjeta-footer">
+                            <span class="precio">30.000</span>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA PRODUCTO 2 -->
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="WhatsApp Image 2026-03-30 at 11.19.11 AM.jpeg" alt="producto 2">
+                    </div>
+                    <div class="tarjeta-info">
+                        <h3>Nombre Producto 2</h3>
+                        <p>Descripción breve del producto</p>
+                        <div class="tarjeta-footer">
+                            <span class="precio">$0.00</span>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA PRODUCTO 3 -->
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="WhatsApp Image 2026-03-30 at 11.20.20 AM.jpeg" alt="producto 3">
+                    </div>
+                    <div class="tarjeta-info">
+                        <h3>Nombre Producto 3</h3>
+                        <p>Descripción breve del producto</p>
+                        <div class="tarjeta-footer">
+                            <span class="precio">$0.00</span>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA PRODUCTO 4 -->
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        <img src="WhatsApp Image 2026-03-27 at 7.26.47 PM.jpeg" alt="producto 4">
+                    </div>
+                    <div class="tarjeta-info">
+                        <h3>Nombre Producto 4</h3>
+                        <p>Descripción breve del producto</p>
+                        <div class="tarjeta-footer">
+                            <span class="precio">$0.00</span>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA PRODUCTO 5 -->
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        IMAGEN 5
+                    </div>
+                    <div class="tarjeta-info">
+                        <h3>Nombre Producto 5</h3>
+                        <p>Descripción breve del producto</p>
+                        <div class="tarjeta-footer">
+                            <span class="precio">$0.00</span>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA PRODUCTO 6 -->
+                <div class="tarjeta">
+                    <div class="tarjeta-imagen">
+                        IMAGEN 6
+                    </div>
+                    <div class="tarjeta-info">
+                        <h3>Nombre Producto 6</h3>
+                        <p>Descripción breve del producto</p>
+                        <div class="tarjeta-footer">
+                            <span class="precio">$0.00</span>
+                            <button class="btn-comprar">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SECCIÓN SOBRE NOSOTROS ===================== -->
+    <section class="sobre-nosotros">
+        <div class="container">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Escribe aquí la historia de tu negocio, tu misión, visión o cualquier información que quieras compartir con tus clientes.</p>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Columna 1 - Contacto -->
+                <div class="footer-col">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li>Tu dirección aquí</li>
+                        <li>Tu teléfono aquí</li>
+                        <li>tu@email.com</li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 2 - Enlaces -->
+                <div class="footer-col">
+                    <h4>ENLACES</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3 - Redes sociales -->
+                <div class="footer-col">
+                    <h4>SÍGUENOS</h4>
+                    <div class="redes-sociales">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Tu Empresa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
