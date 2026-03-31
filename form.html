@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <form class="form">
+        <!-- Comentarios sobre el formulario -->
+        <h1 class="titulo">
+    <span>F</span><span>o</span><span>r</span><span>m</span><span>u</span><span>l</span><span>a</span><span>r</span><span>i</span><span>o</span>
+</h1>
+
+        <fieldset class="info">
+            <legend class="legend-text"> <span>I</span><span>n</span><span>f</span><span>o</span><span>r</span><span>m</span><span>a</span><span>c</span><span>i</span><span>ó</span><span>n</span></legend>
+            <label class="name" for="nombre">
+            <span>N</span><span>o</span><span>m</span><span>b</span><span>r</span><span>e</span>
+            </label>
+            <input id="nombre" placeholder="Nombre" name="nombre">
+
+            <label class="correo" for="correo">
+                <span>C</span><span>o</span><span>r</span><span>r</span><span>e</span><span>o</span>
+            </label>
+            <input id="correo" placeholder="Correo" name="correo">
+
+            <label class="ocupacion" for="ocupacion">
+                <span>O</span><span>c</span><span>u</span><span>p</span><span>a</span><span>c</span><span>i</span><span>ó</span><span>n</span>
+            </label>
+            <input id="ocupacion" placeholder="Ocupación" name="ocupacion">
+
+            <textarea placeholder="Escribe aquí..." name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
+
+            <button class="btn1" type="submit">Enviar</button>
+            <button class="btn2" type="reset">Limpiar</button>
+        </fieldset>
+    </form>
+        </div>
+
+        <!--selectores-->
+        <fieldset class="cont">
+            <legend>continente</legend>
+            <label class="continente" for="opcion">continente</label>
+            <select id="opcion" name="opcion">
+                <option value="opcion1">america</option>
+                <option value="opcion2">europa</option>
+                <option value="opcion3">asia</option>
+                <option value="opcion4">africa</option>
+                <option value="opcion5">oceania</option>
+                <option value="opcion6">antartida</option>
+            </select>
+        </fieldset>
+</body>
+</html>
